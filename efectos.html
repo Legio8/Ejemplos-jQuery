@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Efectos jQuery</title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <style>
+        .caja{
+            background-color: green;
+            width: 640px;
+            height: 480px;
+        }
+
+        .pelota{
+            background-color: orange;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .caja, .pelota{
+            border: black,solid,1px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ejemplos de Efectos en jQuery</h1>
+    <h2>Ocultar Mostrar</h2>
+
+    <button id="btn-ocultar">Ocultar</button>
+    <button id="mostrar">Mostrar</button>
+    <button id="alternar">Alternar</button>
+
+    <p id="parrafo1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid id eveniet possimus, minus ut dicta voluptates porro laudantium. Laboriosam mollitia quisquam, ad cumque. Ullam modi maiores consequuntur doloremque consectetur, eligendi.</p>
+
+
+    <h2>Fundido gradual</h2>
+
+    <button id="btn-desaparecer">fadeOut</button>
+    <button id="btn-aparecer">FadeIn</button>
+    <button id="btn-alternar-fundido">FadeToogle</button>
+    <button id="btn-fundido-hasta">FadeTo</button>
+
+    <p id="parrafo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid id eveniet possimus, minus ut dicta voluptates porro laudantium. Laboriosam mollitia quisquam, ad cumque. Ullam modi maiores consequuntur doloremque consectetur, eligendi.</p>
+
+     <h2>Deslizamiento</h2>
+
+    <button id="btn-deslizar-arriba">slideUp</button>
+    <button id="btn-deslizar-abajo">SlideDown</button>
+    <button id="btn-deslizar-alternar">SlideToogle</button>
+
+    <p id="parrafo3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid id eveniet possimus, minus ut dicta voluptates porro laudantium. Laboriosam mollitia quisquam, ad cumque. Ullam modi maiores consequuntur doloremque consectetur, eligendi.</p>
+
+    <h2>Animacion</h2>
+    <div class="caja">
+        <div class="pelota">
+
+        </div>
+
+    </div>
+
+    <script>        
+        $(function(){
+            //Ejemplo Animacion
+            $('.pelota').click(function(){
+                $(this).animate({
+                    /*width: '100px',
+                    heigth: '100px',*/
+                    left: '590px',
+                    top: '400px'
+                },3000,'swing').animate({left:'0px',top:'0px'},3000,'linear');
+            })
+
+            //Deslizamiento
+            $('#btn-deslizar-arriba').click(function(){
+                $('#parrafo3').slideUp('slow');
+            })
+
+            $('#btn-deslizar-abajo').click(function(){
+                $('#parrafo3').slideDown('slow');
+            })
+
+            $('#btn-deslizar-alternar').click(function(){
+                $('#parrafo3').slideToggle('slow');
+            })
+
+            //Ejemplos fundido gradual
+
+            $('#btn-desaparecer').click(function(){
+                $('#parrafo2').fadeOut('slow');
+            })
+
+            $('#btn-aparecer').click(function(){
+                $('#parrafo2').fadeIn('slow');
+            })
+
+            $('#btn-alternar-fundidoa').click(function(){
+                $('#parrafo2').fadeToggle('slow');
+            })
+
+            $('#btn-fundido-hasta').click(function(){
+                $('#parrafo2').fadeTo('slow',0.5);
+            })
+
+            //Ejemplos aparecer y desaparecer
+            $('#btn-ocultar').click(function(){
+                $('#parrafo1').hide('slow','linear');
+            })
+
+            $('#mostrar').click(function(){
+                $('#parrafo1').show();
+            })
+
+            $('#alternar').click(function(){
+                $('#parrafo1').toggle();
+            })
+        })
+    </script>
+</body>
+</html>
